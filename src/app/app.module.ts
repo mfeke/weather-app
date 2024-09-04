@@ -9,6 +9,7 @@ import { TitleCasePipe } from './title-case.pipe';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { DemoComponent } from './components/demo/demo.component';
+import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DemoComponent } from './components/demo/demo.component';
     TitleCasePipe,
     HomeComponent,
     SearchComponent,
-    DemoComponent
+    DemoComponent,
+    AccessDeniedComponent
   ],
   imports: [
     BrowserModule,
