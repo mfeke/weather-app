@@ -1,0 +1,417 @@
+<div class="over vh-100 "
+    [ngStyle]="{'background': 'url(' + backgroundUrl + ') no-repeat 0 0 / cover'}">
+
+    <div class="bg  pb-5 over d-none ">
+        <div class="container">
+            <div
+                class="d-flex px-2 container align-items-center justify-content-between pt-3">
+                <!-- <img
+                    src="https://i.postimg.cc/G26cJJ70/Screenshot-2024-08-21-202645-removebg-preview.png"
+                    alt class="logo"> -->
+                <h1 class="text-secondary">D<span
+                        class="text-black">O</span>T.</h1>
+                <div class="d-con">
+                    <div class="bg p-1 rounded-circle"
+                        data-bs-toggle="offcanvas" href="#offcanvasExample"
+                        role="button" aria-controls="offcanvasExample">
+                        <svg xmlns="http://www.w3.org/2000/svg" role="button"
+                            width="40"
+                            height="40"
+                            fill="currentColor"
+                            class="bi p-2  text-white bi-search"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                        </svg>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <section class="wrapper w-100 text-white ">
+
+            <div class="contain w-100 container">
+                <div class="px-3">
+                    <div class="pt-3 mt-5 text-white pt-5">
+                        <div class="con w-100  mt-5  pt-5">
+                            <div class="d-flex ">
+                                <h1 class="text-start mb-4 me-2">{{cityName |
+                                    titleCase:['object']}}</h1>
+                                <img src="{{temperate.img}}" class="img"
+                                    alt="img">
+                            </div>
+                            <p
+                                class="text-white font  mb-0">{{temperate.description
+                                |
+                                titleCase:['object']}},</p>
+                            <p class="text-white font ">Feels like
+                                {{temperate.feels_like | number:'1.0-1'}}°</p>
+
+                            <div class="d-flex">
+                                <h2 class="text-start w">{{temperate.temp |
+                                    number:'1.0-1'}}</h2>
+                                <div class="c mt-3 text-secondary">°C</div>
+                            </div>
+                            <div
+                                class="d-flex justify-content-between w-100 mt-3">
+                                <div class="con">
+                                    <p
+                                        class="text-fo mb-0 text-center text-light">Wind</p>
+                                    <p
+                                        class="text-white text-center">{{temperate.wind_speed
+                                        | number:'1.0-1'}} km/h</p>
+                                </div>
+                                <div class="con">
+                                    <p
+                                        class="text-fo mb-0 text-center text-light">Humidity</p>
+                                    <p
+                                        class="text-white text-center">{{temperate.humidity}}%</p>
+                                </div>
+                                <div class="con">
+                                    <p
+                                        class="text-fo mb-0 text-center text-light">Pressure</p>
+                                    <p class="text-white">{{temperate.pressure |
+                                        number}} hPa</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="contain  w-100 container">
+                <div class="px-3">
+                    <div class="pt-3 mt-5 text-white pt-5">
+                        <div class="con w-100   pt-5">
+                            <div class="d-flex ">
+                                <h1 class="text-start  mb-4 me-2">{{cityName |
+                                    titleCase:['object']}}</h1>
+                                <img src="{{temperate.img}}" class="img"
+                                    alt="img">
+                            </div>
+                            <p
+                                class="text-white font  mb-0">{{temperate.description|
+                                titleCase:['object']}},</p>
+                            <p class="text-white font ">Feels like
+                                {{temperate.feels_like | number:'1.0-1'}}°</p>
+
+                            <div class="d-flex">
+                                <h2 class="text-start w">{{temperate.temp |
+                                    number:'1.0-1'}}</h2>
+                                <div class="c mt-3 text-secondary">°C</div>
+                            </div>
+                            <!-- <div
+                                class="d-flex justify-content-between w-100 mt-3">
+                                <div class="con">
+                                    <p
+                                        class="text-fo mb-0 text-center text-light">Wind</p>
+                                    <p
+                                        class="text-white text-center">{{temperate.wind_speed
+                                        | number:'1.0-1'}} km/h</p>
+                                </div>
+                                <div class="con">
+                                    <p
+                                        class="text-fo mb-0 text-center text-light">Humidity</p>
+                                    <p
+                                        class="text-white text-center">{{temperate.humidity}}%</p>
+                                </div>
+                                <div class="con">
+                                    <p
+                                        class="text-fo mb-0 text-center text-light">Pressure</p>
+                                    <p class="text-white">{{temperate.pressure |
+                                        number}} hPa</p>
+                                </div>
+
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="d-flex  w-100 scroll justify-content-between mt-3 mb-3">
+                    <div class="container"
+                        *ngFor="let temp of tempeHours| slice:1:24; index as i">
+                        <div class="me-3">
+                            <p
+                                class="text-white text mx-2 bold mb-0">{{temp.formatTime|
+                                date:"HH:mm"}}</p>
+                            <div class="d-flex justify-conent-center">
+                                <img src="{{temp.iconUrl}}"
+                                    class="iconUrl" alt>
+                            </div>
+                            <p
+                                class="text-white text-center mx-2 text bold mb-0">{{temp.temp|
+                                number:'1.0-0'}} °C</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- -->
+
+    </div>
+    <div class="bg h-100 dis">
+        <div class="container pt-3">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- <img
+                    src="https://i.postimg.cc/G26cJJ70/Screenshot-2024-08-21-202645-removebg-preview.png"
+                    alt class="logo"> -->
+                <h1 class="text-secondary">D<span
+                        class="text-black">O</span>T.</h1>
+
+                <app-search
+                    (searchNameClick)="onSearchNameClick($event)"></app-search>
+            </div>
+        </div>
+        <div class="container text-white mt-5 ">
+            <h1 class="text-center">{{cityName| titleCase:['object']}}</h1>
+            <div class="d-flex justify-content-center">
+                <h2 class="text-center">{{temperate.temp|number
+                    :'1.0-0'}}</h2>
+                <div class="con">
+                    <h1 class="mt-2 text-s">°C</h1>
+                </div>
+
+            </div>
+            <h5 class="text-center me-4">{{temperate.description |
+                titleCase:['object'] }}</h5>
+            <div class="d-flex justify-content-center mt-5">
+                <div class="d-flex justify-content-between w-60">
+
+                    <div class="con">
+                        <div
+                            class="d-flex justify-conent-center align-items-center">
+                            <p class="text-white font mb-0 mx-2">Wind</p>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi  bi-exclamation-circle"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                <path
+                                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+                            </svg>
+                        </div>
+                        <h6
+                            class="text-center mt-1 mb-0">{{temperate.wind_speed|number:
+                            '1.0-2'}} km/h</h6>
+
+                    </div>
+                    <div class="con">
+                        <div class="d-flex align-items-center">
+                            <p class="text-white font mb-0">Humidity</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi mx-2 bi-exclamation-circle"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                <path
+                                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+                            </svg>
+                        </div>
+                        <h6
+                            class="text-center mt-1 mb-0">{{temperate.humidity}}%</h6>
+
+                    </div>
+                    <div class="con">
+                        <div class="d-flex align-items-center ">
+                            <p class="text-white font mx-2 mb-0">Visibitiy</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi  bi-exclamation-circle"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                <path
+                                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+                            </svg>
+                        </div>
+                        <h6
+                            class="text-center mt-1 mb-0">{{temperate.visibility}}km</h6>
+
+                    </div>
+                    <div class="con">
+                        <div
+                            class="d-flex justify-conent-center align-items-center">
+                            <p class="text-white font mb-0 mx-2">Pressure</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi  bi-exclamation-circle"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                <path
+                                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+                            </svg>
+                        </div>
+                        <h6
+                            class="text-center mt-1 mb-0">{{temperate.pressure|number}}
+                            hPa</h6>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row text-white mt-2 pt-4">
+                <div class="col">
+                    <div class="card bg w-100 border-none ">
+                        <div class="card-header">
+                            <p class="text-white fon pt-2 mb-0">Clear conditions
+                                expected
+                                around 7AM.</p>
+                            <hr class="w-100 text-white">
+                            <div
+                                class="d-flex justify-content-between mt-3 mb-3">
+                                <div class="con"
+                                    *ngFor="let temp of tempeHours| slice:0:7; index as i">
+                                    @if(i === 0){
+                                    <p
+                                        class="text-white text-center mx-2 text mb-0">NOW</p>
+                                    <div class="d-flex justify-conent-center">
+                                        <img src="{{temp.iconUrl}}"
+                                            class="iconUrl" alt>
+                                    </div>
+                                    <p
+                                        class="text-white text-center mx-2 text bold mb-0">{{temp.temp|
+                                        number:'1.0-0'}} °C</p>
+                                    } @else{
+                                    <p
+                                        class="text-white text mx-2 bold mb-0">{{temp.formatTime|
+                                        date:"HH:mm"}}</p>
+                                    <div class="d-flex justify-conent-center">
+                                        <img src="{{temp.iconUrl}}"
+                                            class="iconUrl" alt>
+                                    </div>
+                                    <p
+                                        class="text-white text-center mx-2 text bold mb-0">{{temp.temp|
+                                        number:'1.0-0'}} °C</p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5">
+                    <div class="card bg w-100 border-none">
+                        <div class="card-header text-secondary">
+                            <div class="d-flex align-items-center pt-2">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    width="20" height="20"
+                                    fill="currentColor"
+                                    class="bi me-2 bi-calendar-week"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+                                    <path
+                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+                                </svg>
+                                <p class="fon mb-0 ">7-DAY FORECAST</p>
+                            </div>
+
+                            <hr class="text-white w-100 mb-0 ">
+                            <div class="h-10">
+                                <div
+                                    class="d-flex justify-content-between align-items-center mb-3 mt-2"
+                                    *ngFor="let temp of tempeDays ; index as i">
+                                    <div
+                                        class="con d-flex w-100 align-items-center  justify-content-between">
+                                        @if(i === 0){
+                                        <div
+                                            class="con w-100 d-flex align-items-center">
+                                            <p
+                                                class="text-white font days mb-1 mt-1 me-4">Today</p>
+                                            <div
+                                                class="d-flex justify-conent-center">
+                                                <img src="{{temp.iconUrl}}"
+                                                    class="iconUrl-1" alt>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="d-flex w-100 align-items-center">
+                                            <div class="d-flex">
+                                                <p
+                                                    class="text-white font me-1 mb-1">{{temp.max|number:'1.0-0'}}</p>
+
+                                                <div
+                                                    class=" border-1 mt-1 me-2 rounded-circle"></div>
+                                            </div>
+                                            <div class="line me-2"></div>
+                                            <div class="d-flex">
+                                                <p
+                                                    class="text-white font  mb-1 me-1">{{temp.min|number:'1.0-0'}}</p>
+                                                <div
+                                                    class=" border-1 mt-1  rounded-circle"></div>
+                                            </div>
+                                        </div>
+                                        } @else{
+                                        <div
+                                            class="con w-100 d-flex align-items-center">
+                                            <p
+                                                class="text-white font days mb-1 me-4">{{temp.daysOfWeek}}</p>
+                                            <div
+                                                class="d-flex justify-conent-center">
+                                                <img src="{{temp.iconUrl}}"
+                                                    class="iconUrl-1" alt>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="d-flex w-100 align-items-center">
+                                            <div class="d-flex">
+                                                <p
+                                                    class="text-white font me-1 mb-1">{{temp.max|number:'1.0-0'}}</p>
+
+                                                <div
+                                                    class=" border-1 mt-1 me-2 rounded-circle"></div>
+                                            </div>
+                                            <div class="line me-2"></div>
+                                            <div class="d-flex">
+                                                <p
+                                                    class="text-white font  mb-1 me-1">{{temp.min|number:'1.0-0'}}</p>
+                                                <div
+                                                    class=" border-1 mt-1  rounded-circle"></div>
+                                            </div>
+                                        </div>
+                                        }
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="offcanvas offcanvas-start bg-1" tabindex="-1" id="offcanvasExample"
+    aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header d-flex justify-content-end">
+        <!-- <button type="button" class="btn-close text-white" ></button> -->
+        <svg xmlns="http://www.w3.org/2000/svg" data-bs-dismiss="offcanvas"
+            aria-label="Close" width="27" height="27" fill="currentColor"
+            class="bi bi-x text-white" viewBox="0 0 16 16">
+            <path
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+        </svg>
+    </div>
+    <div class="offcanvas-body">
+        <app-search></app-search>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+.text::placeholder {
+    color: gainsboro;
+}
+
+.form-contro {
+    height: 40px;
+}
+
+.border-none {
+    border: none;
+}
+
+.text {
+    color: gainsboro;
+}
+
+.w2 {
+    width: 400px;
+}
+
+.bg-n {
+    background-color: none !important;
+}
+
+.bg {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+@media only screen and (max-width: 600px) {
+
+    /*Big smartphones [426px -> 600px]*/
+    .dis {
+        display: none;
+
+    }
+    .d-none{
+        display: block;
+    }
+}
