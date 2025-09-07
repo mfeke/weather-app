@@ -1,9 +1,26 @@
-h1, .h1{
-    font-size: 40px;
-    font-weight:bold ;
+h1,
+.h1 {
+  font-size: 40px;
+  font-weight: bold;
 }
 .epunda-slab {
-font-family: "Oswald", sans-serif;
+  font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+.font{
+    font-size: 17px;
+}
+.temp{
+    width: 200px;
+}
+.h1{
+    font-size: 50px;
+}
+.bor{
+    border-radius: 100%;
+    border: 3.5px solid black;
+    height: 13px;
+    width: 13px;
+    margin-top: 11px ;
 }
