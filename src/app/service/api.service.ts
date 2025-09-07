@@ -11,7 +11,7 @@ export class ApiService {
   // https://api.openweathermap.org/data?lat=33.44&lon=-94.04&appid={API key}
   constructor(private httpClient: HttpClient) { }
   getCurrentWeather(lat: any, lon: any): Observable<any> {
-    return this.httpClient.get<any>(`${this.baseURL}?lat=${lat}&lon=${lon}&appid=${this.API_key}`);
+    return this.httpClient.get<any>(`${this.baseURL}?lat=${lat}&lon=${lon}&appid=${this.API_key}&units=metric`);
 
   }
   getCityName(lat: number, lon: number): Observable<any> {

@@ -21,15 +21,19 @@
                 </svg>
             </div>
             <div class="d-flex h-100 justify-content-start py-3">
-                <p class="text h1 epunda-slab text-center"> 17&deg;</p>
+                <p class="text h1 epunda-slab text-center">
+                    {{currentWeather.temp| number:"1.0-0"}}&deg;</p>
                 <!-- <div class="bor ">
 
                 </div> -->
             </div>
-            <p class=" mb-2 span">Feels like -20&deg;</p>
-            <div class="d-flex justify-content-between">
-                <p class="span mb-0">Max -23&deg;</p>
-                <p class="span mb-0">Min -90&deg;</p>
+            <p class=" mb-2 span">Feels like {{currentWeather.feels_like|
+                number:"1.0-0"}} &deg;</p>
+            <div class="con" *ngFor="let day of temps; let i = index">
+                <div class="d-flex justify-content-between" *ngIf="i === 0">
+                    <p class="span mb-0">Max {{day.temp.max}}&deg;</p>
+                    <p class="span mb-0">Min {{day.temp.min}}&deg;</p>
+                </div>
             </div>
 
         </div>
@@ -47,7 +51,9 @@
                 </svg>
             </div>
             <div class="d-flex h-100 justify-content-start py-3">
-                <p class="text h1 epunda-slab text-center"> 3 <span
+                <p
+                    class="text h1 epunda-slab text-center">{{currentWeather.wind_speed|
+                    number:"1.0-0"}} <span
                         class="text">m/s</span></p>
                 <!-- <div class="bor ">
 
@@ -55,7 +61,8 @@
             </div>
             <p class="mb-2 span">NorthWest </p>
             <div class="d-flex justify-content-between">
-                <p class="span mb-0">Gusts up to  5 m/s</p>
+                <p class="span mb-0">Gusts up to {{currentWeather.wind_gust|
+                    number:"1.0-0"}} m/s</p>
             </div>
         </div>
     </div>
