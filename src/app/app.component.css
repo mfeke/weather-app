@@ -8,35 +8,44 @@ h1,
   font-optical-sizing: auto;
   font-style: normal;
 }
-.font{
-    font-size: 16.9px;
+.font {
+  font-size: 16.9px;
 }
-.over{
-    overflow: scroll;
+.over {
+  overflow: scroll;
 }
 ::-webkit-scrollbar {
   width: 0px;
 }
 
-.temp{
-    width: 210px;
+.temp {
+  width: 210px;
 }
-.wind{
-    width: 180px;
+.wind {
+  width: 180px;
 }
-.text{
-    font-size: 25px;
+.text {
+  font-size: 25px;
 }
-.h1{
-    font-size: 55px;
+.h1 {
+  font-size: 55px;
 }
-.bor{
-    border-radius: 100%;
-    border: 3.5px solid black;
-    height: 13px;
-    width: 13px;
-    margin-top: 11px ;
+.icon {
+  width: 65px;
 }
-.span{
-    font-size: 14.5px;
+.container-icon{
+    width: 85px;
+}
+.bold{
+    font-weight: bold;
+}
+.bor {
+  border-radius: 100%;
+  border: 3.5px solid black;
+  height: 13px;
+  width: 13px;
+  margin-top: 11px;
+}
+.span {
+  font-size: 14.5px;
 }

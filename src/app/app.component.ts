@@ -12,6 +12,7 @@ export class AppComponent {
   currentWeather: any = {};
 
   temps: any = {};
+  hours: any[] = [];
 
   constructor(private apiService: ApiService) {}
   ngOnInit() {
@@ -21,9 +22,11 @@ export class AppComponent {
         next: (res) => {
           this.currentWeather = res.current;
 
-          this.temps = res.daily
+          this.temps = res.daily;
 
-          console.log(this.temps)
+          this.hours = res.hourly;
+
+          console.log(this.hours);
         },
       });
     });
@@ -40,5 +43,9 @@ export class AppComponent {
         (error) => reject(error)
       );
     });
+  }
+
+  formatTime(hour: number): string {
+    return `${hour.toString().padStart(2, '0')}:00`;
   }
 }
