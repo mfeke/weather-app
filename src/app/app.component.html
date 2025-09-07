@@ -31,8 +31,8 @@
                 number:"1.0-0"}} &deg;</p>
             <div class="con" *ngFor="let day of temps; let i = index">
                 <div class="d-flex justify-content-between" *ngIf="i === 0">
-                    <p class="span mb-0">Max {{day.temp.max}}&deg;</p>
-                    <p class="span mb-0">Min {{day.temp.min}}&deg;</p>
+                    <p class="span mb-0">Max {{day.temp.max | number:"1.0-0"}}&deg;</p>
+                    <p class="span mb-0">Min {{day.temp.min| number:"1.0-0"}}&deg;</p>
                 </div>
             </div>
 
