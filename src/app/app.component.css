@@ -1,6 +1,6 @@
 h1,
 .h1 {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: bold;
 }
 .epunda-slab {
@@ -17,7 +17,12 @@ h1,
 ::-webkit-scrollbar {
   width: 0px;
 }
-
+.font-new{
+    font-size: 14px;
+}
+.lo{
+    font-size: 30px;
+}
 .temp {
   width: 210px;
 }

@@ -8,14 +8,22 @@ import { ApiService } from './service/api.service';
 })
 export class AppComponent {
   title = 'WEATHER <br> IN';
-
+  name = '';
   currentWeather: any = {};
 
   temps: any = {};
   hours: any[] = [];
+  tempeHours: any;
 
   constructor(private apiService: ApiService) {}
   ngOnInit() {
+    this.isgetCurrentLocation().then((data) => {
+      this.apiService.getCityName(data.currLat, data.currLng).subscribe({
+        next: (data) => {
+          this.name = data.address.city;
+        },
+      });
+    });
     this.isgetCurrentLocation().then((data) => {
       console.log(data);
       this.apiService.getCurrentWeather(data.currLat, data.currLng).subscribe({
@@ -26,7 +34,16 @@ export class AppComponent {
 
           this.hours = res.hourly;
 
-          console.log(this.hours);
+          this.tempeHours = res.hourly.map((x: any, i: any) => {
+            let time = convertUnixTimestamp(x.dt);
+            let iconCode = x.weather[0].icon;
+            let num = x.temp;
+            const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+            let formatTime = this.formatTime(time);
+            return { formatTime, num , iconUrl };
+          });
+
+          console.log(this.tempeHours);
         },
       });
     });
@@ -48,4 +65,11 @@ export class AppComponent {
   formatTime(hour: number): string {
     return `${hour.toString().padStart(2, '0')}:00`;
   }
+}
+
+function convertUnixTimestamp(dt: number): any {
+  const date = new Date(dt * 1000);
+
+  let readableTime = date.toTimeString(); // e.g., "8/22/2024"
+  return readableTime;
 }
