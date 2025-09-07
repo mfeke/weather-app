@@ -7,6 +7,8 @@ import { ApiService } from './service/api.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
+  title = "WEATHER <br> IN"
   
 }
 
