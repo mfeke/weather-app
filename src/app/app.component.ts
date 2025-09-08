@@ -30,8 +30,9 @@ export class AppComponent {
         next: (res) => {
           this.currentWeather = res.current;
 
-          this.temps = res.daily;
+          console.log(this.currentWeather)
 
+          this.temps = res.daily;
           this.hours = res.hourly;
 
           this.tempeHours = res.hourly.map((x: any, i: any) => {
@@ -43,7 +44,6 @@ export class AppComponent {
             return { formatTime, num , iconUrl };
           });
 
-          console.log(this.tempeHours);
         },
       });
     });

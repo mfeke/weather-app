@@ -17,14 +17,19 @@ h1,
 ::-webkit-scrollbar {
   width: 0px;
 }
-.font-new{
-    font-size: 14px;
+.font-new {
+  font-size: 14px;
 }
-.lo{
-    font-size: 30px;
+.lo {
+  font-size: 30px;
 }
-.temp {
+.temp-container {
   width: 210px;
+}
+.pressure-container{
+  height: 220px;
+  overflow: hidden;
+
 }
 .wind {
   width: 180px;
@@ -38,11 +43,11 @@ h1,
 .icon {
   width: 65px;
 }
-.container-icon{
-    width: 85px;
+.container-icon {
+  width: 85px;
 }
-.bold{
-    font-weight: bold;
+.bold {
+  font-weight: bold;
 }
 .bor {
   border-radius: 100%;
@@ -53,4 +58,28 @@ h1,
 }
 .span {
   font-size: 14.5px;
+}
+
+.svg {
+  height: 175px !important;
+  position: relative;
+  left: -25px;
+  top: -15px;
+}
+.speed {
+  overflow: hidden;
+}
+.text-c {
+  position: relative;
+  top: -110px;
+
+}
+.h-0{
+    height: 0px;
+    position: relative;
+    top: 10px;
+}
+.font-pre {
+  font-size: 40px;
+  font-weight: bold;
 }
