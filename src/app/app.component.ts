@@ -7,43 +7,31 @@ import { ApiService } from './service/api.service';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'WEATHER <br> IN';
-  name = '';
-  currentWeather: any = {};
-
-  temps: any = {};
-  hours: any[] = [];
-  tempeHours: any;
+  title = '7 day weather <br> forecast';
+  daily: any[] = [];
+  days: any[] = [];
+  bg: any = {};
+  currentDate: Date = new Date(); // Gets the current date and time
 
   constructor(private apiService: ApiService) {}
   ngOnInit() {
-    this.isgetCurrentLocation().then((data) => {
-      this.apiService.getCityName(data.currLat, data.currLng).subscribe({
-        next: (data) => {
-          this.name = data.address.city;
-        },
-      });
+    this.apiService.isGetBackground('clear sky').subscribe({
+      next: (data) => {
+        console.log(data.results[0].urls);
+        this.bg = data.results[0].urls;
+      },
     });
+    this.apiService;
     this.isgetCurrentLocation().then((data) => {
-      console.log(data);
       this.apiService.getCurrentWeather(data.currLat, data.currLng).subscribe({
-        next: (res) => {
-          this.currentWeather = res.current;
-
-          console.log(this.currentWeather)
-
-          this.temps = res.daily;
-          this.hours = res.hourly;
-
-          this.tempeHours = res.hourly.map((x: any, i: any) => {
-            let time = convertUnixTimestamp(x.dt);
-            let iconCode = x.weather[0].icon;
-            let num = x.temp;
-            const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
-            let formatTime = this.formatTime(time);
-            return { formatTime, num , iconUrl };
+        next: (data) => {
+          console.log(data);
+          this.daily = data.daily.map((x: any) => {
+            return {
+              ...x,
+              dt: convertUnixTimestamp(x.dt), // overwrite dt with converted date
+            };
           });
-
         },
       });
     });
@@ -61,15 +49,10 @@ export class AppComponent {
       );
     });
   }
-
-  formatTime(hour: number): string {
-    return `${hour.toString().padStart(2, '0')}:00`;
-  }
 }
-
 function convertUnixTimestamp(dt: number): any {
   const date = new Date(dt * 1000);
 
   let readableTime = date.toTimeString(); // e.g., "8/22/2024"
-  return readableTime;
+  return date;
 }

@@ -9,7 +9,20 @@ h1,
   font-style: normal;
 }
 .font {
-  font-size: 16.9px;
+  font-size: 18.9px;
+}
+.container-days {
+  height: 545px;
+  overflow: scroll;
+}
+.bg {
+  height: 500px;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+.bg-b {
+  background-color: rgba(0, 0, 0, 0.3); /* 50% opaque black */
 }
 .over {
   overflow: scroll;
@@ -26,10 +39,9 @@ h1,
 .temp-container {
   width: 210px;
 }
-.pressure-container{
+.pressure-container {
   height: 220px;
   overflow: hidden;
-
 }
 .wind {
   width: 180px;
@@ -72,12 +84,11 @@ h1,
 .text-c {
   position: relative;
   top: -110px;
-
 }
-.h-0{
-    height: 0px;
-    position: relative;
-    top: 10px;
+.h-0 {
+  height: 0px;
+  position: relative;
+  top: 10px;
 }
 .font-pre {
   font-size: 40px;
